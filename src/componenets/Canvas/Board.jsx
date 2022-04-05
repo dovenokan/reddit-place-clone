@@ -5,21 +5,25 @@ import { WriteData } from '../../utils/fb_funcs';
 import realtime from '../../config/fb_config';
 import { colors } from '../../utils/palette';
 import Square from './Square';
+import Tools from './Tools';
 
-function Board() {
+function Board({userData}) {
     const range = [...Array(1600).keys()];
     const [currentColor, setCurrentColor] = useState(colors.red);
     const [colorMap, setColorMap] = useState([])
     const [loading, setLoading] = useState(true);
 
     function initCanvas(){
-        range.map((n) => {
-            WriteData(realtime,`board/${n}`,{
-                id: n,
-                color: "white",
-                lastModifier: "",
+        if (userData.uid==="Mtmma7pFXpWJsFEeIAUbN22aZkB3") {
+            document.querySelector(".Reset-Btn").style.display = "none";
+            range.map((n) => {
+                WriteData(realtime,`board/${n}`,{
+                    id: n,
+                    color: "white",
+                    lastModifier: "",
+                })
             })
-        })
+        }
     }
 
     function CanvasListener() {
@@ -36,7 +40,8 @@ function Board() {
         WriteData(realtime,`board/${id}`,{
             id: id,
             color: color,
-            lastModifier: "",
+            lastModifierEmail: userData.email,
+            lastModifierUID: userData.uid,
         })
     }
 
@@ -44,20 +49,21 @@ function Board() {
         let scale = 1;
         document.addEventListener("wheel", (e) => {
             e.preventDefault();
-            scale += e.deltaY * -0.0015;
-            scale = Math.min(Math.max(.025, scale), 4);
+            // scale += e.deltaY * -0.0015;
+            // scale = Math.min(Math.max(.025, scale), 4);
             document.querySelector(".Canvas").style.transform=`scale(${scale})`;
         })
     }
 
-    function DragSliderEvent() {
-        return 0
+    function SquareColorize(color) {
+        let r = document.querySelector(':root');
+        r.style.setProperty('--squareBgColor', color);
+        setCurrentColor(color)
     }
 
     useEffect(() => {
         CanvasListener()
         Wheel()
-        DragSliderEvent()
     }, [loading])
 
     
@@ -71,6 +77,7 @@ function Board() {
     
     return(
         <div className="Board">
+            <Tools setCurrentColor={SquareColorize} initCanvas={initCanvas} userData={userData}/>
             <div className="Canvas">
                 { colorMap.map((val,key)=>{
                     return (

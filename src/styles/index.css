@@ -14,6 +14,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   overflow: hidden;
+  cursor: pointer;
+}
+
+:root{
+  --squareBgColor: rgb(255, 255, 255);
 }
 
 .scroll-container  {
@@ -24,7 +29,6 @@ body {
 .App{
   display: grid;
   place-items: center;
-  height: 100vh;
   background-size: 16px 16px;
   background-color: #000000f5;
   background-image: linear-gradient(to right, #161616 1px, transparent 1px), linear-gradient(#161616 1px, transparent 1px);
@@ -32,8 +36,7 @@ body {
 
 /* Board */
 .Board{
-  cursor: move;
-  background-color: #dce2ea;
+  /* background-color: #dce2ea; */
 }
 
 /* Canvas */
@@ -41,6 +44,7 @@ body {
   width:80vh;
   height:80vh;
   display: grid;
+  margin: 0 auto;
   grid-template-columns: repeat(40,1fr);
   grid-template-rows: repeat(40,1fr);
 }
@@ -50,41 +54,64 @@ body {
   background-color: #dce2ea;
   width:80vh;
   height:80vh;
+  display: grid;
+  place-items: center;
 }
 .Loading_Text{
   font-size: 2em;
-  color: white;
+  color: #2B3784;
 }
 
 /* Square */
 .Square{
-  background-color: grey;
+  background-color: white;
+  border: 1px solid #dce2ea;
 }
 .Square:hover{
-  background-color: #2B3784 !important;
-  border: 2px solid aqua;
+  background-color: var(--squareBgColor) !important;
 }
 
 /* Tools */
-.Header{
-  cursor: pointer;
+.Profile{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;  
+  justify-content: center;
+  padding: 5px;
+  color: white;
+}
+
+.Profile .Btn {
+  padding: 5px;
+  background-color: white;
+  color: black;
 }
 
 /* Tools */
 .Tools{
-  background: rgb(5, 5, 152);
   display: grid;
   place-items: center;
   padding: 5px;
   color: white;
 }
 
+.Auth-Button{
+  border: none;
+  background-color: white;
+  color: black;
+  margin-top: 30px;
+  padding: 0 70px 0 70px;
+  cursor: pointer;
+}
+
 /* Palette */
 .Palette{
-  background: #360482a8;
+  background: white;
   display:flex;
   justify-content: center;
   padding: 5px;
+  margin: 5px;
 }
 .Palette-item{
   margin: 2px;
@@ -100,6 +127,25 @@ body {
   background-color: green;
 }
 .Palette-item.blue{
-  background-color: blue;
+  background-color: rgb(14, 126, 255);
 }
+.Palette-item.yellow{
+  background-color: yellow;
+}
+.Palette-item.orange{
+  background-color: orange;
+}
+.Palette-item.purple{
+  background-color: purple;
+}
+.Palette-item.pink{
+  background-color: pink;
+}
+.Palette-item.black{
+  background-color: black;
+}
+.Palette-item.white{
+  background-color: white;
+}
+
 
