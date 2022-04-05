@@ -1,11 +1,9 @@
-import Board from "./componenets/Board";
+import Login from "./componenets/Auth/Login";
 
 function App() {
   return (
     <div className="App">
-        <div className="Container">
-          <Board/>
-        </div>
+      <Login/>
     </div>
   );
 }

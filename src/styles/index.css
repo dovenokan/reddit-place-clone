@@ -1,3 +1,5 @@
+@import url("./drag.css");
+
 *{
   margin: 0;
   padding: 0;
@@ -11,6 +13,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
+  overflow: hidden;
+}
+
+.scroll-container  {
+  width:1vh;
 }
 
 /* App */
@@ -23,32 +30,30 @@ body {
   background-image: linear-gradient(to right, #161616 1px, transparent 1px), linear-gradient(#161616 1px, transparent 1px);
 }
 
-/* Container */
-.Container{
-  z-index: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Board */
 .Board{
-  transform: scale(1.5);
-  overflow: auto;
+  cursor: move;
+  background-color: #dce2ea;
 }
 
 /* Canvas */
 .Canvas{
-  width:640px;
-  height:640px;
+  width:80vh;
+  height:80vh;
   display: grid;
   grid-template-columns: repeat(40,1fr);
   grid-template-rows: repeat(40,1fr);
+}
+
+/* Loading */
+.Loading{
+  background-color: #dce2ea;
+  width:80vh;
+  height:80vh;
+}
+.Loading_Text{
+  font-size: 2em;
+  color: white;
 }
 
 /* Square */
@@ -57,6 +62,7 @@ body {
 }
 .Square:hover{
   background-color: #2B3784 !important;
+  border: 2px solid aqua;
 }
 
 /* Tools */
