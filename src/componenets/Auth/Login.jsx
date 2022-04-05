@@ -12,7 +12,7 @@ function Login() {
     signInWithPopup(auth,provider)
     .then(result => {
       setUserData(result.user);
-      console.log(result.user)
+      // console.log(result.user)
     })
   }
 
@@ -34,15 +34,15 @@ function Login() {
  
   if (userData) {
     return(
-      <>
-        <button className='Auth-Button' onClick={() => SignOut()}>Exit</button>
+      <div className="Login">
+        <div className='Auth-Button' onClick={() => SignOut()}>[ Exit ]</div>
         <Board userData={userData}/>
-      </>
+      </div>
     )
   }
   return (
     <div className="Login">
-      <button className='Auth-Button' onClick={() => SignIn()}>Login</button>
+      <div className='Auth-Button' onClick={() => SignIn()}>[ Login ]</div>
     </div>
   )
 }

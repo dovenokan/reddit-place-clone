@@ -15,7 +15,6 @@ function Board({userData}) {
 
     function initCanvas(){
         if (userData.uid==="Mtmma7pFXpWJsFEeIAUbN22aZkB3") {
-            document.querySelector(".Reset-Btn").style.display = "none";
             range.map((n) => {
                 WriteData(realtime,`board/${n}`,{
                     id: n,
@@ -23,6 +22,8 @@ function Board({userData}) {
                     lastModifier: "",
                 })
             })
+        }else{
+            alert("You are not authorized to reset")
         }
     }
 

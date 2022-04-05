@@ -1,4 +1,5 @@
 @import url("./drag.css");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
 
 *{
   margin: 0;
@@ -7,18 +8,16 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Rubik Microbe', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
-  overflow: hidden;
   cursor: pointer;
 }
 
 :root{
   --squareBgColor: rgb(255, 255, 255);
+  --textColor: whitesmoke;
 }
 
 .scroll-container  {
@@ -29,6 +28,7 @@ body {
 .App{
   display: grid;
   place-items: center;
+  height: 100vh;
   background-size: 16px 16px;
   background-color: #000000f5;
   background-image: linear-gradient(to right, #161616 1px, transparent 1px), linear-gradient(#161616 1px, transparent 1px);
@@ -51,7 +51,6 @@ body {
 
 /* Loading */
 .Loading{
-  background-color: #dce2ea;
   width:80vh;
   height:80vh;
   display: grid;
@@ -59,12 +58,12 @@ body {
 }
 .Loading_Text{
   font-size: 2em;
-  color: #2B3784;
+  color: var(--textColor);
 }
 
 /* Square */
 .Square{
-  background-color: white;
+  background-color: black;
   border: 1px solid #dce2ea;
 }
 .Square:hover{
@@ -78,14 +77,11 @@ body {
   gap: 10px;
   align-items: center;  
   justify-content: center;
-  padding: 5px;
-  color: white;
+  color: var(--textColor);
 }
 
 .Profile .Btn {
-  padding: 5px;
-  background-color: white;
-  color: black;
+  color: var(--textColor);
 }
 
 /* Tools */
@@ -93,21 +89,22 @@ body {
   display: grid;
   place-items: center;
   padding: 5px;
-  color: white;
+  color: var(--textColor);
 }
 
 .Auth-Button{
   border: none;
-  background-color: white;
-  color: black;
-  margin-top: 30px;
-  padding: 0 70px 0 70px;
+  color: var(--textColor);
+  background-color: transparent;
+  width: 100%;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
 }
 
 /* Palette */
 .Palette{
-  background: white;
   display:flex;
   justify-content: center;
   padding: 5px;
@@ -117,7 +114,7 @@ body {
   margin: 2px;
   width: 15px;
   height: 15px;
-  border: 1px solid black;
+  border: 1px solid rgb(247, 247, 247);
   border-radius: 50%;
 }
 .Palette-item.red{
