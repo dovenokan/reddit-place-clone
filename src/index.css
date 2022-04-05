@@ -1,0 +1,99 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+
+/* App */
+.App{
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-size: 16px 16px;
+  background-color: #000000f5;
+  background-image: linear-gradient(to right, #161616 1px, transparent 1px), linear-gradient(#161616 1px, transparent 1px);
+}
+
+/* Container */
+.Container{
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Board */
+.Board{
+  transform: scale(1.5);
+  overflow: auto;
+}
+
+/* Canvas */
+.Canvas{
+  width:640px;
+  height:640px;
+  display: grid;
+  grid-template-columns: repeat(40,1fr);
+  grid-template-rows: repeat(40,1fr);
+}
+
+/* Square */
+.Square{
+  background-color: grey;
+}
+.Square:hover{
+  background-color: #2B3784 !important;
+}
+
+/* Tools */
+.Header{
+  cursor: pointer;
+}
+
+/* Tools */
+.Tools{
+  background: rgb(5, 5, 152);
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  color: white;
+}
+
+/* Palette */
+.Palette{
+  background: #360482a8;
+  display:flex;
+  justify-content: center;
+  padding: 5px;
+}
+.Palette-item{
+  margin: 2px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.Palette-item.red{
+  background-color: red;
+}
+.Palette-item.green{
+  background-color: green;
+}
+.Palette-item.blue{
+  background-color: blue;
+}
+
