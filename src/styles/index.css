@@ -16,7 +16,7 @@ body {
 }
 
 :root{
-  --squareBgColor: rgb(255, 255, 255);
+  --squareBgColor: #ff4500;
   --textColor: whitesmoke;
 }
 
@@ -117,32 +117,4 @@ body {
   border: 1px solid rgb(247, 247, 247);
   border-radius: 50%;
 }
-.Palette-item.red{
-  background-color: red;
-}
-.Palette-item.green{
-  background-color: green;
-}
-.Palette-item.blue{
-  background-color: rgb(14, 126, 255);
-}
-.Palette-item.yellow{
-  background-color: yellow;
-}
-.Palette-item.orange{
-  background-color: orange;
-}
-.Palette-item.purple{
-  background-color: purple;
-}
-.Palette-item.pink{
-  background-color: pink;
-}
-.Palette-item.black{
-  background-color: black;
-}
-.Palette-item.white{
-  background-color: white;
-}
-
 
