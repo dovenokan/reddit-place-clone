@@ -8,7 +8,7 @@ import Square from './Square';
 import Tools from './Tools';
 
 function Board({userData}) {
-    const range = [...Array(1600).keys()];
+    const range = [...Array(6400).keys()];
     const [currentColor, setCurrentColor] = useState(colors.red);
     const [colorMap, setColorMap] = useState([])
     const [loading, setLoading] = useState(true);

@@ -45,8 +45,8 @@ body {
   height:80vh;
   display: grid;
   margin: 0 auto;
-  grid-template-columns: repeat(40,1fr);
-  grid-template-rows: repeat(40,1fr);
+  grid-template-columns: repeat(80,1fr);
+  grid-template-rows: repeat(80,1fr);
 }
 
 /* Loading */
@@ -64,7 +64,7 @@ body {
 /* Square */
 .Square{
   background-color: black;
-  border: 1px solid #dce2ea;
+  border: 1px solid #07070714;
 }
 .Square:hover{
   background-color: var(--squareBgColor) !important;
