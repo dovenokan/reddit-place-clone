@@ -6,7 +6,7 @@ import { WriteData } from '../../utils/fb_funcs';
 import realtime from '../../config/fb_config';
 import { colors } from '../../utils/palette';
 import Square from './Square';
-import Tools from './Tools';
+import Tools from '../Tools/Tools';
 import { TransformWrapper, TransformComponent } from "@tiendeo/react-zoom-pan-pinch";
 
 function Board({userData}) {
@@ -69,9 +69,9 @@ function Board({userData}) {
     return(
         <TransformWrapper
             limitToBounds={false}
-            minScale={1}
+            minScale={0}
             maxScale={15}
-            initialScale={5}
+            initialScale={0}
             initialPositionX={100}
             initialPositionY={100}
         >
