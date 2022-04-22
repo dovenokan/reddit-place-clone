@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable array-callback-return */
 import { useEffect,useState } from 'react';
 import { ref, onValue } from 'firebase/database';
@@ -6,10 +7,11 @@ import realtime from '../../config/fb_config';
 import { colors } from '../../utils/palette';
 import Square from './Square';
 import Tools from './Tools';
+import { TransformWrapper, TransformComponent } from "@tiendeo/react-zoom-pan-pinch";
 
 function Board({userData}) {
     const range = [...Array(6400).keys()];
-    const [currentColor, setCurrentColor] = useState(colors.red);
+    const [currentColor, setCurrentColor] = useState(colors.c1);
     const [colorMap, setColorMap] = useState([])
     const [loading, setLoading] = useState(true);
 
@@ -31,7 +33,6 @@ function Board({userData}) {
         const dbRef = ref(realtime, "board")
         onValue(dbRef, (snapshot) => {
             const data = Object.values(snapshot.val())
-            // console.log(data)
             setColorMap(data)
             setLoading(false) 
         });
@@ -46,16 +47,6 @@ function Board({userData}) {
         })
     }
 
-    function Wheel() {
-        let scale = 1;
-        document.addEventListener("wheel", (e) => {
-            e.preventDefault();
-            // scale += e.deltaY * -0.0015;
-            // scale = Math.min(Math.max(.025, scale), 4);
-            document.querySelector(".Canvas").style.transform=`scale(${scale})`;
-        })
-    }
-
     function SquareColorize(color) {
         let r = document.querySelector(':root');
         r.style.setProperty('--squareBgColor', color);
@@ -64,7 +55,6 @@ function Board({userData}) {
 
     useEffect(() => {
         CanvasListener()
-        Wheel()
     }, [loading])
 
     
@@ -77,16 +67,27 @@ function Board({userData}) {
     }
     
     return(
-        <div className="Board">
-            <Tools setCurrentColor={SquareColorize} initCanvas={initCanvas} userData={userData}/>
-            <div className="Canvas">
-                { colorMap.map((val,key)=>{
-                    return (
-                        <Square upadateSquare={()=>updateSquare(val.id,currentColor)} key={key} id={val.id} color={val.color} />
-                    )
-                })}
-            </div>
-        </div>
+        <TransformWrapper
+            limitToBounds={false}
+            minScale={1}
+            maxScale={15}
+            initialScale={5}
+            initialPositionX={100}
+            initialPositionY={100}
+        >
+            <Tools setCurrentColor={SquareColorize} initCanvas={initCanvas} userData={userData} />
+            <TransformComponent>
+                <div className="Board">
+                    <div className="Canvas">
+                        { colorMap.map((val,key)=>{
+                            return (
+                                <Square upadateSquare={()=>updateSquare(val.id,currentColor)} key={key} id={val.id} color={val.color} />
+                            )
+                        })}
+                    </div>
+                </div>
+            </TransformComponent>
+        </TransformWrapper>
     )
 }
 

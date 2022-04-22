@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState,useEffect } from 'react';
 import { auth } from '../../config/fb_config';
 import { GoogleAuthProvider,signInWithPopup,signOut } from "firebase/auth";
@@ -12,7 +13,6 @@ function Login() {
     signInWithPopup(auth,provider)
     .then(result => {
       setUserData(result.user);
-      // console.log(result.user)
     })
   }
 
@@ -31,17 +31,15 @@ function Login() {
     })
   }, [userData])
   
- 
   if (userData) {
     return(
-      <div className="Login">
-        <div className='Auth-Button' onClick={() => SignOut()}>[ Exit ]</div>
-        <Board userData={userData}/>
+      <div className="Container">
+        <Board userData={userData} signOut={signOut}/>
       </div>
     )
   }
   return (
-    <div className="Login">
+    <div className="Container">
       <div className='Auth-Button' onClick={() => SignIn()}>[ Login ]</div>
     </div>
   )

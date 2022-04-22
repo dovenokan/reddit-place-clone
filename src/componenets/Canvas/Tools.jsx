@@ -1,3 +1,4 @@
+import { auth } from '../../config/fb_config';
 import { colors } from '../../utils/palette';
 
 function Tools({userData,setCurrentColor,initCanvas}) {
@@ -6,6 +7,7 @@ function Tools({userData,setCurrentColor,initCanvas}) {
       <div className="Profile">
         <div onClick={()=>initCanvas()} className="Reset-Btn Btn">[ Reset ]</div>
         <div className="Username Btn">[ {userData.displayName} ]</div>
+        <div className='Exit-Btn Btn' onClick={() => {auth.signOut(); window.location.reload()}}>[ Exit ]</div>
       </div>
       <div className="Palette">
         <div onClick={()=>setCurrentColor(colors.c1)} className="Palette-item" style={{backgroundColor: colors.c1}}></div>

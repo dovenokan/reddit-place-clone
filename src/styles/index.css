@@ -11,7 +11,6 @@ body {
   font-family: 'Rubik Microbe', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: black;
   cursor: pointer;
 }
 
@@ -20,29 +19,23 @@ body {
   --textColor: whitesmoke;
 }
 
-.scroll-container  {
-  width:1vh;
-}
-
-/* App */
-.App{
+.Container{
   display: grid;
   place-items: center;
   height: 100vh;
-  background-size: 16px 16px;
-  background-color: #000000f5;
-  background-image: linear-gradient(to right, #161616 1px, transparent 1px), linear-gradient(#161616 1px, transparent 1px);
+  width: 100vw;
+  background-color: rgb(4, 49, 126);
 }
 
-/* Board */
 .Board{
-  /* background-color: #dce2ea; */
+  width: 100vw;
+  height: 100vh;
 }
 
 /* Canvas */
 .Canvas{
-  width:80vh;
-  height:80vh;
+  width: 100vh;
+  height: 100vh;
   display: grid;
   margin: 0 auto;
   grid-template-columns: repeat(80,1fr);
@@ -70,7 +63,6 @@ body {
   background-color: var(--squareBgColor) !important;
 }
 
-/* Tools */
 .Profile{
   display: flex;
   flex-direction: row;
@@ -84,12 +76,15 @@ body {
   color: var(--textColor);
 }
 
-/* Tools */
 .Tools{
   display: grid;
   place-items: center;
+  position: sticky;
+  top: 0;
   padding: 5px;
+  width: 100%;
   color: var(--textColor);
+  background-color: rgb(19, 78, 181);
 }
 
 .Auth-Button{
