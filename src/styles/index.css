@@ -58,7 +58,7 @@ body {
 
 /* Square */
 .Square{
-  border: 1px solid #070707;
+  border: 1px solid #07070714;
 }
 .Square:hover{
   background-color: var(--squareBgColor) !important;
