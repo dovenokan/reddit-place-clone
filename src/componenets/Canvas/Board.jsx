@@ -18,7 +18,7 @@ function Board({userData}) {
     function initCanvas(){
         if (userData.uid==="Mtmma7pFXpWJsFEeIAUbN22aZkB3") {
             range.map((n) => {
-                WriteData(realtime,`board/${n}`,{
+                WriteData(realtime,`6400_board/${n}`,{
                     id: n,
                     color: "white",
                     lastModifier: "",
@@ -30,7 +30,7 @@ function Board({userData}) {
     }
 
     function CanvasListener() {
-        const dbRef = ref(realtime, "board")
+        const dbRef = ref(realtime, "6400_board")
         onValue(dbRef, (snapshot) => {
             const data = Object.values(snapshot.val())
             setColorMap(data)
@@ -39,7 +39,7 @@ function Board({userData}) {
     }
 
     function updateSquare(id, color){
-        WriteData(realtime,`board/${id}`,{
+        WriteData(realtime,`6400_board/${id}`,{
             id: id,
             color: color,
             lastModifierEmail: userData.email,
